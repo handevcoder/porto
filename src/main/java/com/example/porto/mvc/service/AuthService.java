@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -33,7 +34,13 @@ public class AuthService {
         }
 
     }
-    public String login(LoginRequest request) {
-        return "Login Successfully";
+
+    public boolean login(LoginRequest request) {
+        Person person = personRepo.findByUsername(request.getUsername());
+        if (person == null) {
+            return false;
+        }
+        return person.getPassword().equals(request.getPassword());
     }
+
 }

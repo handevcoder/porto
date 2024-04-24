@@ -34,8 +34,13 @@ public class AuthController {
     @PostMapping("login")
     public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest request) {
         try {
-            String response = authSvc.login(request);
-            return ResponseHandler.success("Successfully", response, HttpStatus.OK);
+            boolean response = authSvc.login(request);
+            if (response) {
+                return ResponseHandler.success("Login Successfully", response, HttpStatus.OK);
+
+            } else {
+                return ResponseHandler.success("Login Failed", response, HttpStatus.OK);
+            }
         } catch (Exception e) {
             return ResponseHandler.error("Error", HttpStatus.INTERNAL_SERVER_ERROR);
         }
