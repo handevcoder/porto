@@ -2,8 +2,6 @@ package com.example.porto.mvc.service;
 
 import com.example.porto.mvc.model.Person;
 import com.example.porto.mvc.repository.PersonsRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +12,6 @@ public class PersonService {
 
     @Autowired
     private PersonsRepository personRepository;
-
-    @PersistenceContext
-    private EntityManager em;
 
     public List<Person> getAllPerson() {
         List<Person> allUser = personRepository.findAll();
