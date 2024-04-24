@@ -1,7 +1,7 @@
 package com.example.porto.mvc.service;
 
 import com.example.porto.mvc.model.Person;
-import com.example.porto.mvc.repository.PersonsRepository;
+import com.example.porto.mvc.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.*;
 public class PersonService {
 
     @Autowired
-    private PersonsRepository personRepository;
+    private PersonRepository personRepository;
 
     public List<Person> getAllPerson() {
         List<Person> allUser = personRepository.findAll();
