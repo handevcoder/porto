@@ -20,6 +20,7 @@ public class AuthController {
     @Autowired
     private AuthService authSvc;
 
+
     @PostMapping("register")
     public ResponseEntity<ApiResponse> register(@RequestBody RegisterRequest request) {
         try {

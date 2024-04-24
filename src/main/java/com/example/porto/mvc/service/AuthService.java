@@ -16,6 +16,7 @@ public class AuthService {
     @Autowired
     private PersonRepository personRepo;
 
+
     public String register(RegisterRequest request) {
         try {
             personRepo.save(new Person(

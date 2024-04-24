@@ -7,8 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoginRequest {
+
     @Column(name = "username")
     private String username;
     @Column(name = "password")
     private String password;
+
 }
