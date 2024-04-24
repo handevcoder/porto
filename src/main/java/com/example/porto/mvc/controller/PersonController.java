@@ -1,5 +1,7 @@
-package com.example.porto.person;
+package com.example.porto.mvc.controller;
 
+import com.example.porto.mvc.model.Person;
+import com.example.porto.mvc.service.PersonService;
 import com.example.porto.util.response.ApiResponse;
 import com.example.porto.util.response.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;

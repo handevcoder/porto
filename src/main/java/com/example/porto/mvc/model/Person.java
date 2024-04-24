@@ -1,4 +1,4 @@
-package com.example.porto.person;
+package com.example.porto.mvc.model;
 
 
 import jakarta.persistence.*;

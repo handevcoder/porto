@@ -1,5 +1,7 @@
-package com.example.porto.person;
+package com.example.porto.mvc.service;
 
+import com.example.porto.mvc.model.Person;
+import com.example.porto.mvc.repository.PersonsRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
