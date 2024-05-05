@@ -1,6 +1,5 @@
 package com.example.porto.mvc.config;
 
-import com.example.porto.mvc.model.Person;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
