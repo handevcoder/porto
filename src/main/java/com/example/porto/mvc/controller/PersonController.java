@@ -7,6 +7,7 @@ import com.example.porto.util.response.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,7 @@ public class PersonController {
     @Autowired
     private PersonService usrSvc;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("create-person")
     public ResponseEntity<ApiResponse> createUser(@RequestBody Person person) {
         try {
@@ -28,6 +30,7 @@ public class PersonController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("get-all-person")
     public ResponseEntity<ApiResponse> getAllUser() {
         try {
@@ -38,6 +41,7 @@ public class PersonController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("get-person-by-id")
     public ResponseEntity<ApiResponse> findById(@RequestBody Person person) {
         try {
@@ -48,6 +52,7 @@ public class PersonController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("delete-person-by-id")
     public ResponseEntity<ApiResponse> deleteById(@RequestBody Person person) {
         try {
@@ -58,6 +63,7 @@ public class PersonController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("update-person-by-id")
     public ResponseEntity<ApiResponse> updateById(@RequestBody Person person) {
         try {

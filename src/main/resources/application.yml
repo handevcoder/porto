@@ -15,3 +15,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  security:
+    user:
+      name: root
+      password: root
+      role: ADMIN
