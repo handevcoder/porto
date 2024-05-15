@@ -11,7 +11,7 @@ public class RegisterRequest {
     private String firstname;
     @Column(name = "lastname")
     private String lastname;
-    @Column(name = "username")
+    @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;

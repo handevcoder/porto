@@ -35,7 +35,7 @@ public class AuthService {
     }
 
     public boolean login(LoginRequest request) {
-        Person person = personRepo.findByUsername(request.getUsername());
+        Person person = personRepo.findByUsername(request.getEmail());
         if (person == null) {
             return false;
         }

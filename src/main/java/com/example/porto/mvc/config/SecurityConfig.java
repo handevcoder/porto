@@ -35,14 +35,17 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(req -> req.requestMatchers("/api/auth/**")
+                .cors(AbstractHttpConfigurer::disable)
+                .headers(AbstractHttpConfigurer::disable)
+                        .authorizeHttpRequests(req -> req.requestMatchers("/**")
                         .permitAll()
+                        .requestMatchers("/h2-console").permitAll()
                         .requestMatchers("/api/person").hasAnyAuthority(Role.ADMIN.name())
                         .requestMatchers("/api/person").hasAnyAuthority(Role.USER.name())
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider()).addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class
-                );
+                .authenticationProvider(authenticationProvider()).addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 

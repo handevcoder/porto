@@ -1,15 +1,13 @@
 package com.example.porto.mvc.model.dto;
 
 import jakarta.persistence.Column;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class LoginRequest {
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "email")
+    private String email;
     @Column(name = "password")
     private String password;
 
