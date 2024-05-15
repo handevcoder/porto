@@ -1,17 +1,19 @@
-package com.example.porto.mvc.service;
+package com.example.porto.mvc.service.impl;
 
-import com.example.porto.mvc.repository.UserRepository;
+import com.example.porto.mvc.service.JWTService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
 import java.util.function.Function;
 
+@Service
 public class JWTServiceImpl implements JWTService {
 
     @Override
@@ -20,6 +22,7 @@ public class JWTServiceImpl implements JWTService {
 
     }
 
+    @Override
     public String generateToken(UserDetails userDetails) {
         return Jwts.builder().subject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
@@ -27,8 +30,6 @@ public class JWTServiceImpl implements JWTService {
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
-
-
 
     private Key getSignKey() {
         byte[] key = Decoders.BASE64.decode("amF2YXdlYnNlcnZpY2V3aXRoc3ByaW5nc2VjdXJpdHk2YW5kanNvbndlYnRva2Vu");

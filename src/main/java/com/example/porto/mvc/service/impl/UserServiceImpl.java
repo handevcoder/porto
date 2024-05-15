@@ -1,6 +1,7 @@
-package com.example.porto.mvc.service;
+package com.example.porto.mvc.service.impl;
 
 import com.example.porto.mvc.repository.UserRepository;
+import com.example.porto.mvc.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

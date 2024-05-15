@@ -13,19 +13,25 @@ import java.util.UUID;
 @Data
 @Entity
 @NoArgsConstructor
+@Table(name = "\"user\"")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID uid;
     private String firstname;
     private String lastname;
-    private String username;
+    private String email;
     private String password;
     private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
     }
 
     @Override

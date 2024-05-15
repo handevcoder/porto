@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -22,7 +21,7 @@ public class AuthService {
         try {
             personRepo.save(new Person(
                             UUID.randomUUID(),
-                            request.getUsername(),
+                            request.getEmail(),
                             new Date(),
                             new Date(),
                             request.getPassword()
